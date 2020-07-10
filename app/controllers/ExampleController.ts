@@ -13,23 +13,23 @@ export async function index(request: Request, response: Response){
 export async function show(request: Request, response: Response){
   console.log('show');
 
-  return response.json({crazy: "show"});
+  return response.json({data: "show"});
 }
 
 export async function store(request: Request, response: Response){
   console.log('store');
 
-  return response.json({crazy: "store"});
+  return response.json({data: "store"});
 }
 
 export async function update(request: Request, response: Response){
   console.log('update');
 
-  return response.json({crazy: "update"});
+  return response.json({data: "update"});
 }
 
 export async function destroy(request: Request, response: Response){
   console.log('delete');
 
-  return response.json({crazy: "delete"});
+  return response.json({data: "delete"});
 }
