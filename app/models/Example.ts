@@ -1,8 +1,8 @@
-export default class Example{
+export default class Example {
 
-    public name = 'myExampleName';
+    public name = 'This is My Name';
 
-    example(){
+    getName(){
         return this.name;
     }
 }

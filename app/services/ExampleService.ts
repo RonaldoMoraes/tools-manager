@@ -23,7 +23,3 @@ export function listAll() {
     }
   ];
 }
-
-export function store() {
-  return ["Hi there!"];
-}

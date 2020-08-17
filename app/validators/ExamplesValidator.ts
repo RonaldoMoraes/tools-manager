@@ -1,20 +1,13 @@
-import { celebrate, Joi } from 'celebrate';
-import { Request, Response, NextFunction } from 'express';
+const { celebrate, Joi, errors, Segments } = require('celebrate');
 
-export default async function(request: Request, response: Response, next: NextFunction){
-  console.log('ExamplesValidator');
-  
-  // celebrate({
-  //     body: Joi.object().keys({
-  //         title: Joi.string().required(),
-  //         link: Joi.string().required(),
-  //         description: Joi.string().required(),
-  //         tags: Joi.string().required(),
-  //     })
-  // },
-  // {
-  //     abortEarly: false
-  // })
-
-  return next();
-}
+export default celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    title: Joi.string().required(),
+    link: Joi.string().required(),
+    description: Joi.string().required(),
+    tags: Joi.array().required(),
+  })
+},
+{
+    abortEarly: false
+})

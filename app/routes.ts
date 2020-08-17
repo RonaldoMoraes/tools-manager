@@ -1,15 +1,15 @@
 import express from 'express';
-import * as controllers from './controllers';
-import * as validators from './validators'
-import * as middlewares from './middlewares'
+import { ExamplesController } from './controllers';
+import { ExamplesValidator } from './validators';
+import { ExampleMiddleware } from './middlewares';
 
-const routes = express.Router(); 
+const routes = express.Router();
 
-const examples = "/examples";
-routes.get(`${examples}`, [middlewares.ExampleMiddleware, validators.ExamplesValidator], controllers.ExamplesController.index);
-// routes.get(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExampleController.show);
-// routes.post(`${examples}`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExampleController.store);
-// routes.put(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExampleController.update);
-// routes.delete(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExampleController.destroy);
+const examples = "/api/examples";
+routes.get(`${examples}`, [ExampleMiddleware], ExamplesController.index);
+routes.post(`${examples}`, [ExampleMiddleware, ExamplesValidator], ExamplesController.store);
+routes.get(`${examples}/:id`, [ExampleMiddleware], ExamplesController.show);
+// routes.put(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExamplesController.update);
+// routes.delete(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExamplesController.destroy);
 
 export default routes;
