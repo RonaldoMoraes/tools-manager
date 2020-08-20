@@ -1,0 +1,17 @@
+import mongoose from 'mongoose';
+
+export const connect = () => {
+    let uri: string;
+    const { MONGO_URI_TYPE, MONGO_USER, MONGO_PASSWORD, MONGO_HOST, MONGO_DB, MONGO_PORT } = process.env
+    if (MONGO_URI_TYPE === 'mongodb+srv'){
+        uri = `${MONGO_URI_TYPE}://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DB}`;
+    } else {
+        uri = `${MONGO_URI_TYPE}://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`;
+    }
+    mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+        console.log("Successfully connected to the database");
+    });
+    mongoose.Promise = global.Promise;
+    let db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
+}

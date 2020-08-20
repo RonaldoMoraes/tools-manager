@@ -1,15 +1,19 @@
 import express from 'express';
-import { ExamplesController } from './controllers';
-import { ExamplesValidator } from './validators';
-import { ExampleMiddleware } from './middlewares';
+import { ToolsController } from './controllers';
+import { ToolsValidator } from './validators';
+import { ToolsMiddleware } from './middlewares';
 
 const routes = express.Router();
 
-const examples = "/api/examples";
-routes.get(`${examples}`, [ExampleMiddleware], ExamplesController.index);
-routes.post(`${examples}`, [ExampleMiddleware, ExamplesValidator], ExamplesController.store);
-routes.get(`${examples}/:id`, [ExampleMiddleware], ExamplesController.show);
-// routes.put(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExamplesController.update);
-// routes.delete(`${examples}/:id`, [middlewares.ExampleMiddleware, middlewares.ExampleMiddleware], ExamplesController.destroy);
+// Using the middleware ToolsMiddleware
+routes.get("/api/tools", [ToolsMiddleware], ToolsController.index);
+// Using the validator on ToolsValidator.store
+routes.post("/api/tools", [ToolsValidator.store], ToolsController.store);
+routes.get("/api/tools/:id", ToolsController.show);
+routes.put("/api/tools/:id", ToolsController.update);
+routes.delete("/api/tools/:id", ToolsController.destroy);
+
+// MongoDB Simple Tests
+routes.get("/api/test", ToolsController.test);
 
 export default routes;

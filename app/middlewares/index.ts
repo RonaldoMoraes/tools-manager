@@ -1,1 +1,1 @@
-export { default as ExampleMiddleware } from "./ExampleMiddleware";
+export { default as ToolsMiddleware } from "./ToolsMiddleware";

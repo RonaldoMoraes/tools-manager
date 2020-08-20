@@ -1,1 +1,1 @@
-export * as ExamplesController from "./ExampleController";
+export * as ToolsController from "./ToolsController";

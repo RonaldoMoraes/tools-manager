@@ -1,1 +1,1 @@
-export { default as ExamplesValidator } from "./ExamplesValidator";
+export * as ToolsValidator from "./ToolsValidator";
