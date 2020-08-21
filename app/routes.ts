@@ -5,6 +5,7 @@ import { ToolsMiddleware } from './middlewares';
 
 const routes = express.Router();
 
+routes.get("/", (req, res) => {res.send("Don't be shy, take and sit and let's start testing! ☕")});
 // Using the middleware ToolsMiddleware
 routes.get("/api/tools", [ToolsMiddleware], ToolsController.index);
 // Using the validator on ToolsValidator.store

@@ -45,12 +45,12 @@
     "baseUrl": ".",                       /* Base directory to resolve non-absolute module names. */
     "paths": {
       // "@models/*": ["app/models/*"],
-      // "@services/*": ["services/*"],
-      // "@controllers/*": ["controllers/*"],
-      // "@middlewares/*": ["middlewares/*"],
-      // "@config/*": ["config/*"],
-      // "@validators/*": ["validators/*"],
-      // "@handlers/*": ["handlers/*"],
+      // "@services/*": ["app/services/*"],
+      // "@controllers/*": ["app/controllers/*"],
+      // "@middlewares/*": ["app/middlewares/*"],
+      // "@config/*": ["app/config/*"],
+      // "@validators/*": ["app/validators/*"],
+      // "@handlers/*": ["app/handlers/*"],
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
