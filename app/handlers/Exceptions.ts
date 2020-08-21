@@ -1,5 +1,6 @@
 import HttpException from "./HttpException";
 import { Request, Response, NextFunction } from "express";
+import * as respondWith from '../utils/respondWith';
 
 export const errorHandler = (
   error: HttpException,
@@ -11,7 +12,7 @@ export const errorHandler = (
   const message =
     error.message || "It's not you. It's us. We are having some problems.";
 
-  response.status(status).send(message);
+  respondWith.error(response, message);
 };
 
 export const notFoundHandler = (
@@ -20,7 +21,7 @@ export const notFoundHandler = (
   next: NextFunction
 ) => {
 
-  const message = "Resource not found";
+  const message = "Resource not found. ⚠️🧙‍♂️You shall not pass 🧙‍♂️⚠️";
 
-  response.status(404).send(message);
+  respondWith.error(response, message, 404);
 };

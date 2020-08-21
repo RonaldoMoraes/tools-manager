@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import * as ToolsService from '../services/ToolsService';
 import Tool from '../models/Tool';
-import * as respondWith from '../utils/respondWith'
+import * as respondWith from '../utils/respondWith';
 
 export async function index(req: Request, res: Response){
   try{
     const tools = await ToolsService.listAll();
-
+    
     return respondWith.success(res, tools);
   } catch (error) {
     return respondWith.error(res)

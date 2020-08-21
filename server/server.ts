@@ -8,7 +8,7 @@ import * as mongodb from '../database/mongo-init';
 dotenv.config();
 const app: express.Application = express();
 const port: number = parseInt(process.env.PORT as string, 10) || 3000;
-mongodb.connect()  
+mongodb.connect();
 
 app.use(cors());
 app.use(express.json());
