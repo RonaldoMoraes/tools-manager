@@ -1,1 +1,1 @@
-export * as ToolsController from "./ToolsController";
+export * as ToolsController from './ToolsController';
